@@ -1,0 +1,308 @@
+" M->cmd, A->option, C->control
+" <ESC> - escape, <BS> - backspace, <CR> - return, <Bar> - |
+" https://vimhelp.org/intro.txt.html#key-notation
+
+" leader
+let mapleader = ','
+let g:mapleader = ','
+
+" 启用vim surround功能
+"set surround
+" 启用multi cursor
+"set multiple-cursors
+" 显示行号
+set nu
+" 显示相对行号
+" set rnu
+" 高亮搜索
+set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+" 显示当前的模式
+"set showmode
+" 共享系统粘贴板
+set clipboard=unnamed
+" 搜索时智能匹配大小写
+set ignorecase smartcase
+" 设置 alt 键不映射到菜单栏
+"set winaltkeys=no
+" 去掉输入错误的提示声音
+set novisualbell
+"set noerrorbells
+
+" Insert
+inoremap jk <Esc>
+" 插入模式移动光标 ctrl + 方向键
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <left>
+inoremap <C-l> <Right>
+imap <leader>o <Esc>o
+" 回车即选中当前项
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+
+" 插入模式粘贴
+" + for the clipboard,
+" * for the X clipboard (last selected text in X),
+" " for the unnamed register (last delete or yank in Vim),
+inoremap <leader>p <C-r>+
+
+
+" Normal
+nnoremap dd ddzz
+nnoremap vv ^vg_
+" 移动分割窗口
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
+" Visual
+vnoremap d dzz
+
+" Normal + Visual
+noremap # #zz
+noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
+noremap H Hzz
+noremap L Lzz
+noremap 0 0zz
+noremap $ $zz
+noremap ^ ^zz
+noremap j jzz
+noremap k kzz
+noremap G Gzz
+noremap u uzz
+noremap ( (zz
+noremap ) )zz
+noremap { {zz
+noremap } }zz
+noremap [{ [{zz
+noremap ]} ]}zz
+noremap gd gdzz
+noremap <C-O> <ESC>:vsc View.Back<CR>
+noremap <C-I> <ESC>:vsc View.Forward<CR>
+noremap <C-D> <C-D>zz
+noremap <C-U> <C-U>zz
+" E和R是为了保持与Chrome中的SurfingKeys的键位一致
+noremap E gT
+noremap R gt
+"noremap J <ESC>:action EditorJoinLines<CR>
+
+" Visual Studio
+" comment
+noremap <leader>cc <ESC>:vsc Edit.CommentSelection<CR>
+noremap <leader>cu <ESC>:vsc Edit.UncommentSelection<CR>
+
+" Leader key relevant
+" close all but this
+noremap <leader>ca <ESC>:vsc File.CloseAllButThis<CR>
+" w
+"noremap <leader>w <ESC>:vsc<CR>
+" error description
+"noremap <leader>e <ESC>:vsc ShowErrorDescription<CR>
+" return
+"noremap <leader>r <ESC>:vsc Rerun<CR>
+" Windows或者MacOS的快捷键都与t相关, 所以选择t作为键
+"noremap <leader>t <ESC>:vsc Refactorings.QuickListPopupAction<CR>
+" y
+"noremap <leader>y <ESC>:action <CR>
+" usage
+noremap <leader>su <ESC>:vsc View.ShowReferences<CR>
+" import
+"noremap <leader>i <ESC>:vsc Maven.Reimport<CR>
+" open file path
+noremap <leader>o <ESC>:vsc Edit.OpenFile<CR>
+" show projects
+noremap <leader>sp <ESC>:vsc File.ViewHistory<CR>
+
+" ace jump
+"noremap <leader>a <ESC>:action emacsIDEAs.AceJumpWord<CR>
+" structure
+"noremap <leader>s <ESC>:action FileStructurePopup<CR>
+" debug option
+"noremap <leader>d <ESC>:action ChooseDebugConfiguration<CR>
+" 同样也是debug，因为d已经被ChooseDebugConfiguration占领, 所以就放在了d键隔壁.
+"noremap <leader>f <ESC>:action DebugClass<CR>
+" g
+"noremap <leader>ge <ESC>:action Generate<CR>
+" hide all
+"noremap <leader>hw <ESC>:action HideAllWindows<CR>
+" light up
+"noremap <leader>lu <ESC>:action HighlightUsagesInFile<CR>
+" 粘贴最近复制寄存器
+noremap <leader>; "0p
+" r
+noremap <leader>re <ESC>:vsc Refactor.Rename<CR>
+
+" 本行皆为debug所用
+" resume - z
+"noremap <leader>z <ESC>:action Resume<CR>
+" step over
+"noremap <leader>x <ESC>:action StepOver<CR>
+" step into
+"noremap <leader>c <ESC>:action SmartStepInto<CR>
+" evaluate expression - v
+noremap <leader>ee <ESC>:vsc Debug.EvaluateStatement<CR>
+" breakpoints
+noremap <leader>vb <ESC>:vsc Debug.Breakpoints<CR>
+" 因为属于breakpoint范畴的功能, 所以就选择了b和m的隔壁
+noremap <leader>bp <ESC>:vsc Debug.ToggleBreakpoint<CR>
+" mute breakpoints
+noremap <leader>mb <ESC>:vsc Debug.DeleteAllBreakpoints<CR>
+
+" g key relevant
+"
+" a
+"noremap ga <ESC>:action GotoAction <CR>
+" switcher
+"noremap gw <ESC>:action RecentFiles<CR>
+" e
+"noremap ge <ESC>:action <CR>
+" r
+"noremap gr <ESC>:action <CR>
+" translator(third party plugin)
+"noremap gt <ESC>:action $EditorTranslateAction<CR>
+" y
+"noremap gy <ESC>:action CopyReference<CR>
+" u
+"noremap gu <ESC>:action <CR>
+" intention
+"noremap gi <ESC>:action ShowIntentionActions<CR>
+" o
+"noremap go <ESC>:action <CR>
+" param info
+noremap gp <ESC>:action ParameterInfo<CR>
+
+" goto source
+noremap gi <ESC>:vsc Edit.GoToDefinition<CR>
+" goto declaration
+noremap gd <ESC>:vsc Edit.GoToDeclaration<CR>
+" goto file
+"noremap gf <ESC>:action GotoFile<CR>
+" g
+"noremap gg <ESC>:action MUST_NOT_BE_CHANGED!!!<CR>
+" hierarchy
+"noremap ghc <ESC>:action CallHierarchy<CR>
+"noremap ght <ESC>:action TypeHierarchy<CR>
+"noremap ghm <ESC>:action MethodHierarchy<CR>
+" j analyze data flow in
+noremap gj <ESC>:vsc Edit.GoToPrevLocation<CR>
+" k analyze data flow out
+noremap gk <ESC>:vsc Edit.GoToNextLocation<CR>
+" l
+noremap gl <ESC>:vsc Edit.GoTo<CR>
+
+" z
+"noremap gz <ESC>:action <CR>
+" v
+"noremap gv <ESC>:action <CR>
+" b
+"noremap gb <ESC>:action FindBugs.CurrentFileAction<CR>
+" goto class
+"noremap gcs <ESC>:action GotoClass<CR>
+" goto symbol
+"noremap gs <ESC>:action GotoSymbol<CR>
+" jump to next error
+noremap gne <ESC>:vsc View.NextError<CR>
+" jump to previous error，就近原则
+noremap gpe <ESC>:vsc View.PreviousError<CR>
+
+" \ also works
+"noremap \q <ESC>:action <CR>
+" refresh
+noremap \r <ESC>:source ~/.vsvimrc<CR>
+" git flow
+"noremap \[ <ESC>:action Gitflow.OpenGitflowPopup<CR>
+" Vcs
+"noremap \] <ESC>:action Vcs.QuickListPopupAction<CR>
+
+" global find
+noremap g/ <ESC>:vsc Edit.FindinFiles<CR>
+" global replace
+noremap g' <ESC>:vsc Edit.ReplaceinFiles<CR>
+" find
+noremap / <ESC>:vsc Edit.Find<CR>
+noremap a/ <ESC>:vsc Edit.FindAllReferences<CR>
+" replace
+noremap ' <ESC>:vsc Edit.Replace<CR>
+" previous method
+noremap [[ <ESC>:vsc Edit.PreviousMethod<CR>
+" next method
+noremap ]] <ESC>:vsc Edit.NextMethod<CR>
+
+" multiple cursors
+"map <A-M>  <A-N>
+
+" => 选中及操作改键
+
+" 调整缩进后自动选中，方便再次操作
+vnoremap < <gv
+vnoremap > >gv
+
+" y$ -> Y Make Y behave like other capitals
+map Y y$
+
+" 复制选中区到系统剪切板中
+vnoremap <leader>y "+y
+
+" auto jump to end of select
+" vnoremap <silent> y y`]
+" vnoremap <silent> p p`]
+" nnoremap <silent> p p`]
+
+" select all
+map <Leader>sa ggVG
+
+" 选中并高亮最后一次插入的内容
+nnoremap gv `[v`]
+
+" select block
+nnoremap <leader>v V`}
+
+" w!! to sudo & write a file
+cmap w!! w !sudo tee >/dev/null %
+
+" 滚动Speed up scrolling of the viewport slightly
+nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 2<C-y>
+
+
+" Jump to start and end of line using the home row keys
+" 增强tab操作, 导致这个会有问题, 考虑换键
+"nmap t o<ESC>k
+"nmap T O<ESC>j
+
+" Quickly close the current window
+nnoremap <leader>q :q<CR>
+
+" Quickly save the current file
+nnoremap <leader>w :w<CR>
+
+" 交换 ' `, 使得可以快速使用'跳到marked位置
+nnoremap ' `
+nnoremap ` '
+
+" remap U to <C-r> for easier redo
+nnoremap U <C-r>
+
+" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
+set relativenumber number
+au FocusLost * :set norelativenumber number
+au FocusGained * :set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+"function! NumberToggle()
+"  if(&relativenumber == 1)
+"    set norelativenumber number
+"  else
+"    set relativenumber
+"  endif
+"endfunc
+"nnoremap <C-n> :call NumberToggle()<cr>
