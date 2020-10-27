@@ -39,7 +39,7 @@ inoremap <C-h> <left>
 inoremap <C-l> <Right>
 imap <leader>o <Esc>o
 " 回车即选中当前项
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 " 插入模式粘贴
 " + for the clipboard,
@@ -68,8 +68,8 @@ vnoremap d dzz
 " Normal + Visual
 noremap # #zz
 noremap * *zz
-noremap w wzz
-noremap W Wzz
+"noremap w wzz
+"noremap W Wzz
 noremap e ezz
 noremap E Ezz
 noremap b bzz
@@ -89,7 +89,7 @@ noremap { {zz
 noremap } }zz
 noremap [{ [{zz
 noremap ]} ]}zz
-noremap gd gdzz
+"noremap gd gdzz
 noremap <C-O> <ESC>:vsc View.Back<CR>
 noremap <C-I> <ESC>:vsc View.Forward<CR>
 noremap <C-D> <C-D>zz
@@ -103,6 +103,8 @@ noremap R gt
 " comment
 noremap <leader>cc <ESC>:vsc Edit.CommentSelection<CR>
 noremap <leader>cu <ESC>:vsc Edit.UncommentSelection<CR>
+noremap <leader>fd <ESC>:vsc Edit.FormatDocument<CR>
+noremap <leader>fs <ESC>:vsc Edit.FormatSelection<CR>
 
 " Leader key relevant
 " close all but this
@@ -230,12 +232,12 @@ noremap \r <ESC>:source ~/.vsvimrc<CR>
 " global find
 noremap g/ <ESC>:vsc Edit.FindinFiles<CR>
 " global replace
-noremap g' <ESC>:vsc Edit.ReplaceinFiles<CR>
+noremap <leader>gri <ESC>:vsc Edit.ReplaceinFiles<CR>
 " find
 noremap / <ESC>:vsc Edit.Find<CR>
 noremap a/ <ESC>:vsc Edit.FindAllReferences<CR>
-" replace
-noremap ' <ESC>:vsc Edit.Replace<CR>
+" replace inplace
+noremap <leader>ri <ESC>:vsc Edit.Replace<CR>
 " previous method
 noremap [[ <ESC>:vsc Edit.PreviousMethod<CR>
 " next method
