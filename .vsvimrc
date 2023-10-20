@@ -103,8 +103,6 @@ noremap R gt
 " comment
 noremap <leader>cc <ESC>:vsc Edit.CommentSelection<CR>
 noremap <leader>cu <ESC>:vsc Edit.UncommentSelection<CR>
-noremap <leader>fd <ESC>:vsc Edit.FormatDocument<CR>
-noremap <leader>fs <ESC>:vsc Edit.FormatSelection<CR>
 
 " Leader key relevant
 " close all but this
@@ -121,8 +119,6 @@ noremap <leader>ca <ESC>:vsc File.CloseAllButThis<CR>
 "noremap <leader>y <ESC>:action <CR>
 " usage
 noremap <leader>su <ESC>:vsc View.ShowReferences<CR>
-" import
-"noremap <leader>i <ESC>:vsc Maven.Reimport<CR>
 " open file path
 noremap <leader>o <ESC>:vsc Edit.OpenFile<CR>
 " show projects
@@ -132,12 +128,14 @@ noremap <leader>sp <ESC>:vsc File.ViewHistory<CR>
 "noremap <leader>a <ESC>:action emacsIDEAs.AceJumpWord<CR>
 " structure
 "noremap <leader>s <ESC>:action FileStructurePopup<CR>
-" debug option
-"noremap <leader>d <ESC>:action ChooseDebugConfiguration<CR>
-" 同样也是debug，因为d已经被ChooseDebugConfiguration占领, 所以就放在了d键隔壁.
-"noremap <leader>f <ESC>:action DebugClass<CR>
-" g
-"noremap <leader>ge <ESC>:action Generate<CR>
+
+" goto
+noremap <leader>g <ESC>:vsc Edit.GoToSymbol<CR>
+noremap <leader>f <ESC>:vsc Edit.GoToFile<CR>
+noremap <leader>gi <ESC>:vsc Edit.GoToImplementation<CR>
+noremap <leader>gd <ESC>:vsc Edit.GoToDefinition<CR>
+noremap <leader>gdc <ESC>:vsc Edit.GoToDeclaration<CR>
+
 " hide all
 "noremap <leader>hw <ESC>:action HideAllWindows<CR>
 " light up
@@ -186,14 +184,6 @@ noremap <leader>mb <ESC>:vsc Debug.DeleteAllBreakpoints<CR>
 " param info
 noremap gp <ESC>:action ParameterInfo<CR>
 
-" goto source
-noremap gi <ESC>:vsc Edit.GoToDefinition<CR>
-" goto declaration
-noremap gd <ESC>:vsc Edit.GoToDeclaration<CR>
-" goto file
-"noremap gf <ESC>:action GotoFile<CR>
-" g
-"noremap gg <ESC>:action MUST_NOT_BE_CHANGED!!!<CR>
 " hierarchy
 "noremap ghc <ESC>:action CallHierarchy<CR>
 "noremap ght <ESC>:action TypeHierarchy<CR>
