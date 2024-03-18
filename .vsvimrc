@@ -113,8 +113,6 @@ noremap <leader>ca <ESC>:vsc File.CloseAllButThis<CR>
 "noremap <leader>e <ESC>:vsc ShowErrorDescription<CR>
 " return
 "noremap <leader>r <ESC>:vsc Rerun<CR>
-" Windows或者MacOS的快捷键都与t相关, 所以选择t作为键
-"noremap <leader>t <ESC>:vsc Refactorings.QuickListPopupAction<CR>
 " y
 "noremap <leader>y <ESC>:action <CR>
 " usage
@@ -132,6 +130,7 @@ noremap <leader>sp <ESC>:vsc File.ViewHistory<CR>
 " goto
 noremap <leader>g <ESC>:vsc Edit.GoToSymbol<CR>
 noremap <leader>f <ESC>:vsc Edit.GoToFile<CR>
+noremap <leader>t <ESC>:vsc Edit.GoToType<CR>
 noremap <leader>gi <ESC>:vsc Edit.GoToImplementation<CR>
 noremap <leader>gd <ESC>:vsc Edit.GoToDefinition<CR>
 noremap <leader>gdc <ESC>:vsc Edit.GoToDeclaration<CR>
