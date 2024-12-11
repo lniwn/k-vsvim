@@ -131,6 +131,7 @@ noremap <leader>sp <ESC>:vsc File.ViewHistory<CR>
 noremap <leader>g <ESC>:vsc Edit.GoToSymbol<CR>
 noremap <leader>f <ESC>:vsc Edit.GoToFile<CR>
 noremap <leader>t <ESC>:vsc Edit.GoToType<CR>
+noremap <leader>m <ESC>:vsc Edit.GoToMember<CR>
 noremap <leader>gi <ESC>:vsc Edit.GoToImplementation<CR>
 noremap <leader>gd <ESC>:vsc Edit.GoToDefinition<CR>
 noremap <leader>gdc <ESC>:vsc Edit.GoToDeclaration<CR>
@@ -158,7 +159,7 @@ noremap <leader>vb <ESC>:vsc Debug.Breakpoints<CR>
 " 因为属于breakpoint范畴的功能, 所以就选择了b和m的隔壁
 noremap <leader>bp <ESC>:vsc Debug.ToggleBreakpoint<CR>
 " mute breakpoints
-noremap <leader>mb <ESC>:vsc Debug.DeleteAllBreakpoints<CR>
+"noremap <leader>mb <ESC>:vsc Debug.DeleteAllBreakpoints<CR>
 
 " g key relevant
 "
